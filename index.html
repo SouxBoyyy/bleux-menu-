@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès Vidéo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        #video {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Accès à la Vidéo</h1>
+        <p>Entrez le code et le mot de passe pour voir la vidéo.</p>
+        <input type="text" id="code" placeholder="Entrez le code" />
+        <input type="password" id="password" placeholder="Entrez le mot de passe" />
+        <button onclick="checkAccess()">Valider</button>
+
+        <div class="error" id="error-message"></div>
+
+        <div id="video">
+            <h2>Vidéo Accès Autorisé !</h2>
+            <!-- Remplacez le chemin vers votre vidéo ici -->
+            <video width="600" controls>
+                <source src="C:\Users\Soux\Videos/2025-02-05 19-30-15.mp4" type="video/mp4">
+
+                Votre navigateur ne prend pas en charge la balise vidéo.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function checkAccess() {
+            var code = document.getElementById('code').value;
+            var password = document.getElementById('password').value;
+            var errorMessage = document.getElementById('error-message');
+            var video = document.getElementById('video');
+
+            // Code et mot de passe corrects
+            var correctCode = "4574544";
+            var correctPassword = "SouxBoyylegoat";
+
+            // Réinitialiser le message d'erreur
+            errorMessage.textContent = '';
+
+            // Vérifier le code et le mot de passe
+            if (code === correctCode && password === correctPassword) {
+                // Afficher la vidéo
+                video.style.display = 'block';
+            } else {
+                // Afficher un message d'erreur
+                errorMessage.textContent = 'Code ou mot de passe incorrect. Essayez à nouveau.';
+                video.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
